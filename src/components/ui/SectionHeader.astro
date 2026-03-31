@@ -1,0 +1,33 @@
+---
+interface Props {
+  label?: string;
+  title: string;
+  titleHighlight?: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+}
+
+const { label, title, titleHighlight, subtitle, align = 'center' } = Astro.props;
+
+const alignClass = align === 'left' ? 'text-left' : 'text-center mx-auto';
+const maxW = align === 'left' ? '' : 'max-w-2xl';
+---
+
+<div class={`${alignClass} ${maxW} mb-12 lg:mb-16`}>
+  {label && (
+    <span class="inline-block text-orange-400 text-sm font-semibold tracking-widest uppercase mb-3">
+      {label}
+    </span>
+  )}
+  <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white leading-tight mb-4">
+    {title}
+    {titleHighlight && (
+      <span class="text-gradient"> {titleHighlight}</span>
+    )}
+  </h2>
+  {subtitle && (
+    <p class="text-gray-400 text-lg leading-relaxed">
+      {subtitle}
+    </p>
+  )}
+</div>

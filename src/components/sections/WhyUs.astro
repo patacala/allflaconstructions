@@ -1,0 +1,59 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const differentiators = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
+    title: 'Licensed & Fully Insured',
+    description: 'We carry full liability and workers\' compensation insurance. Your property and peace of mind are fully protected.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+    title: '10+ Years of Experience',
+    description: 'A decade of perfecting our craft. We\'ve handled hundreds of roofs — simple repairs to complex full replacements.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>`,
+    title: 'Premium Materials Only',
+    description: 'We partner with top-tier manufacturers. Every project uses materials rated for durability, energy efficiency, and aesthetics.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>`,
+    title: 'Workmanship Guarantee',
+    description: 'We stand behind every nail. Our work is backed by a solid warranty so you\'re covered long after we\'re done.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>`,
+    title: 'Transparent Communication',
+    description: 'No surprises. Clear quotes, honest timelines, and a dedicated point of contact from start to finish.',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+    title: 'Competitive Pricing',
+    description: 'Premium quality doesn\'t have to break the bank. We offer fair, competitive pricing with flexible financing options.',
+  },
+];
+---
+
+<section id="why-us" class="py-20 lg:py-32 bg-brand-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <SectionHeader
+      label="Why Choose Us"
+      title="The Alfla Constructions"
+      titleHighlight="Difference"
+      subtitle="We don't just install roofs — we build lasting relationships with homeowners who deserve a contractor they can trust."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {differentiators.map(({ icon, title, description }) => (
+        <div class="group p-6 rounded-xl border border-brand-border hover:border-orange-500/30 bg-brand-navy/50 hover:bg-brand-navy transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 mb-5 group-hover:bg-orange-500/15 group-hover:border-orange-500/35 transition-all duration-300">
+            <span set:html={icon} />
+          </div>
+          <h3 class="text-white font-heading font-bold text-lg mb-2">{title}</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

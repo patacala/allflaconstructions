@@ -1,0 +1,98 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const services = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 22V12h6v10"/></svg>`,
+    title: 'New Roof Installation',
+    description: 'Expert installation for new construction or complete roof tear-offs. We work with all roofing systems to suit your style, budget, and climate.',
+    benefit: 'Built to last 25–50 years',
+    tag: 'Most Popular',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>`,
+    title: 'Roof Restoration',
+    description: 'Extend the life of your existing roof with targeted restoration. Cost-effective alternative to full replacement when structural integrity is sound.',
+    benefit: 'Save up to 50% vs replacement',
+    tag: null,
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>`,
+    title: 'Roof Replacement',
+    description: 'Full roof replacement with premium materials and expert installation. We handle everything from removal and disposal to the final clean-up.',
+    benefit: 'Clean removal & disposal included',
+    tag: null,
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    title: 'Maintenance & Repair',
+    description: 'Proactive maintenance programs and rapid repair service to address leaks, storm damage, and wear before they become expensive problems.',
+    benefit: 'Emergency response available',
+    tag: null,
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
+    title: 'Free Roof Inspection',
+    description: 'Our certified inspectors evaluate your roof\'s condition, identify vulnerabilities, and provide a detailed report — completely free of charge.',
+    benefit: 'No obligation, no pressure',
+    tag: 'Free',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>`,
+    title: 'Storm Damage Assessment',
+    description: 'After severe weather, we provide rapid assessment and documentation to support your insurance claim and get your roof restored fast.',
+    benefit: 'Insurance claim assistance',
+    tag: null,
+  },
+];
+---
+
+<section id="services" class="py-20 lg:py-32 bg-brand-navy">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <SectionHeader
+      label="Our Services"
+      title="Complete Roofing"
+      titleHighlight="Solutions"
+      subtitle="From new construction to emergency repairs — we have the expertise and resources to handle any roofing project."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {services.map(({ icon, title, description, benefit, tag }) => (
+        <div class="group relative p-6 rounded-2xl border border-brand-border hover:border-orange-500/40 bg-brand-card hover:bg-brand-card/80 transition-all duration-300 shadow-xl shadow-black/20 hover:shadow-black/40 flex flex-col">
+          {/* Tag */}
+          {tag && (
+            <div class="absolute -top-3 left-6">
+              <span class={`px-3 py-1 rounded-full text-xs font-bold ${tag === 'Free' ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-orange-500/20 text-orange-400 border border-orange-500/30'}`}>
+                {tag}
+              </span>
+            </div>
+          )}
+
+          {/* Icon */}
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-500/5 border border-orange-500/20 flex items-center justify-center text-orange-400 mb-5 group-hover:scale-105 transition-transform duration-300">
+            <span set:html={icon} />
+          </div>
+
+          <h3 class="text-white font-heading font-bold text-xl mb-3">{title}</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5 flex-1">{description}</p>
+
+          {/* Benefit pill */}
+          <div class="flex items-center gap-2 mb-5">
+            <svg class="w-4 h-4 text-orange-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span class="text-orange-300 text-xs font-medium">{benefit}</span>
+          </div>
+
+          {/* CTA */}
+          <button
+            data-modal="contact"
+            class="w-full py-3 text-sm font-semibold rounded-lg border border-brand-border hover:border-orange-500/50 text-gray-300 hover:text-white hover:bg-orange-500/10 transition-all duration-200"
+          >
+            Get a Quote
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
