@@ -5,11 +5,13 @@ export default {
     extend: {
       colors: {
         brand: {
-          navy: '#0A0E1A',
-          dark: '#111827',
-          accent: '#F97316',
-          card: '#1F2937',
-          border: '#374151',
+          navy: '#0B1F4B',
+          blue: '#1E40AF',
+          orange: '#EA580C',
+          green: '#059669',
+          sky: '#EFF6FF',
+          light: '#FFFFFF',
+          dark: '#070B14',
         },
       },
       fontFamily: {

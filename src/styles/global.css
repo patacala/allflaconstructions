@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-brand-navy text-gray-100 font-sans antialiased;
+    @apply bg-white text-slate-900 font-sans antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -20,6 +20,10 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent;
+    background: linear-gradient(to right, #EA580C, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
   }
 }

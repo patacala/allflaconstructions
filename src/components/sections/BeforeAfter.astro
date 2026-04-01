@@ -1,0 +1,96 @@
+---
+const images = [
+  { src: '/service1.jpeg',        alt: 'Roofing service' },
+  { src: '/service2.jpeg',        alt: 'Roof restoration' },
+  { src: '/service3.jpeg',        alt: 'Roof installation' },
+  { src: '/trust1.jpg',           alt: 'Roofing project' },
+  { src: '/trust2.jpeg',          alt: 'Completed roof' },
+  { src: '/trust3.jpeg',          alt: 'Roofing result' },
+  { src: '/block1.jpeg',          alt: 'Alfla team on site' },
+  { src: '/block1-2.jpg',         alt: 'Roofing work' },
+  { src: '/flat.jpeg',            alt: 'Flat roof' },
+  { src: '/new_contruction.jpeg', alt: 'New construction' },
+  { src: '/new_contruction2.jpeg',alt: 'New construction 2' },
+  { src: '/roof.png',             alt: 'Completed roof' },
+];
+---
+
+<section id="before-after" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-14">
+      <div class="inline-flex items-center gap-2 text-sm text-slate-500 mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+        Our Work
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-heading font-bold text-slate-900 leading-tight mb-4">
+        Real Roofs, Real Results
+      </h2>
+      <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+        See the transformation our restoration delivers — same roof, better protection, at a fraction of replacement cost.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Full-width carousel -->
+  <div class="relative overflow-hidden mb-12" id="work-carousel-wrapper">
+    <!-- Fade masks -->
+    <div class="absolute inset-y-0 left-0 w-28 z-10 pointer-events-none"
+         style="background: linear-gradient(to right, white, transparent);"></div>
+    <div class="absolute inset-y-0 right-0 w-28 z-10 pointer-events-none"
+         style="background: linear-gradient(to left, white, transparent);"></div>
+
+    <!-- Scrolling track (images duplicated for seamless loop) -->
+    <div class="carousel-work flex gap-5 w-max py-3" id="work-track">
+      {[...images, ...images].map(({ src, alt }) => (
+        <div class="w-80 h-60 rounded-2xl overflow-hidden flex-shrink-0 shadow-sm">
+          <img
+            src={src}
+            alt={alt}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center">
+      <button
+        data-modal="contact"
+        class="inline-flex items-center gap-2 pl-5 pr-1.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-full transition-all"
+      >
+        Get Your Free Inspection
+        <span class="w-7 h-7 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes work-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .carousel-work {
+    animation: work-scroll 45s linear infinite;
+  }
+  .carousel-work.paused {
+    animation-play-state: paused;
+  }
+</style>
+
+<script>
+  const track = document.getElementById('work-track');
+  const wrapper = document.getElementById('work-carousel-wrapper');
+
+  wrapper?.addEventListener('mouseenter', () => track?.classList.add('paused'));
+  wrapper?.addEventListener('mouseleave', () => track?.classList.remove('paused'));
+</script>

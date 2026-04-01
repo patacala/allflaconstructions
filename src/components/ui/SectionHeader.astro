@@ -15,18 +15,18 @@ const maxW = align === 'left' ? '' : 'max-w-2xl';
 
 <div class={`${alignClass} ${maxW} mb-12 lg:mb-16`}>
   {label && (
-    <span class="inline-block text-orange-400 text-sm font-semibold tracking-widest uppercase mb-3">
+    <span class="inline-block text-brand-orange text-sm font-semibold tracking-widest uppercase mb-3">
       {label}
     </span>
   )}
-  <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white leading-tight mb-4">
+  <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-brand-navy leading-tight mb-4">
     {title}
     {titleHighlight && (
       <span class="text-gradient"> {titleHighlight}</span>
     )}
   </h2>
   {subtitle && (
-    <p class="text-gray-400 text-lg leading-relaxed">
+    <p class="text-slate-600 text-lg leading-relaxed">
       {subtitle}
     </p>
   )}

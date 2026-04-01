@@ -1,84 +1,140 @@
 ---
-import SectionHeader from '../ui/SectionHeader.astro';
-
 const steps = [
   {
-    number: '01',
+    n: '01',
     title: 'Free Inspection',
-    description: 'Schedule your no-cost, no-obligation roof inspection. Our certified expert will assess your roof\'s condition and identify any issues.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
+    description: 'We assess your flat roof at no cost — no obligation. You\'ll receive a full report with photos and honest recommendations.',
+    img: 'https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?auto=format&fit=crop&w=300&q=80',
+    imgAlt: 'Inspector reviewing roof',
   },
   {
-    number: '02',
-    title: 'Detailed Quote',
-    description: 'Receive a transparent, itemized quote with no hidden fees. We walk you through every line item and answer all your questions.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>`,
+    n: '02',
+    title: 'Custom Quote',
+    description: 'Transparent, itemized pricing delivered in 24 hours. We explain every option and recommend the best fit for your budget — no hidden fees.',
+    img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=300&q=80',
+    imgAlt: 'Reviewing roofing quote',
   },
   {
-    number: '03',
+    n: '03',
     title: 'Expert Installation',
-    description: 'Our skilled team completes the work efficiently, using premium materials. We maintain a clean work site and keep you informed daily.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>`,
-  },
-  {
-    number: '04',
-    title: 'Warranty & Follow-Up',
-    description: 'We do a final walkthrough together, deliver your warranty documentation, and follow up to ensure your complete satisfaction.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>`,
+    description: 'Our licensed crew completes the work efficiently. Clean site, guaranteed quality, and you\'re back to normal fast.',
+    img: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=300&q=80',
+    imgAlt: 'Expert roofing installation',
   },
 ];
 ---
 
-<section id="process" class="py-20 lg:py-32 bg-brand-dark">
+<section id="process" class="py-24 lg:py-32 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <SectionHeader
-      label="How It Works"
-      title="Working With Us Is"
-      titleHighlight="Simple"
-      subtitle="Four straightforward steps from first contact to finished roof. We've made the process as easy as possible for you."
-    />
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-    <div class="relative">
-      <!-- Connector line (desktop only) -->
-      <div class="hidden lg:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-        {steps.map(({ number, title, description, icon }, index) => (
-          <div class="relative flex flex-col items-center text-center lg:items-start lg:text-left">
-            <!-- Step circle -->
-            <div class="relative z-10 w-24 h-24 rounded-2xl bg-gradient-to-br from-orange-500/20 to-brand-card border border-orange-500/30 flex flex-col items-center justify-center mb-6 flex-shrink-0 shadow-xl shadow-orange-500/10">
-              <span class="text-orange-400 text-xs font-bold tracking-widest mb-1">{number}</span>
-              <span class="text-orange-300" set:html={icon} />
-            </div>
-
-            <!-- Arrow (mobile only, between steps) -->
-            {index < steps.length - 1 && (
-              <div class="lg:hidden flex items-center justify-center text-orange-500/40 my-2 rotate-90">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
-            )}
-
-            <h3 class="text-white font-heading font-bold text-xl mb-3">{title}</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">{description}</p>
-          </div>
-        ))}
+      <!-- LEFT: contained image, all corners rounded -->
+      <div class="rounded-3xl overflow-hidden">
+        <img
+          src="/trust1.jpg"
+          alt="Professional roofer working on flat roof"
+          class="w-full h-[480px] lg:h-[560px] object-cover"
+          loading="lazy"
+        />
       </div>
-    </div>
 
-    <!-- Bottom CTA -->
-    <div class="text-center mt-14">
-      <p class="text-gray-400 mb-6">Ready to get started? It only takes a minute.</p>
-      <button
-        data-modal="contact"
-        class="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-xl transition-all duration-200 shadow-xl shadow-orange-500/25"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-        </svg>
-        Schedule Free Inspection
-      </button>
+      <!-- RIGHT: content + accordion -->
+      <div>
+
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 text-sm text-slate-500 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+          How It Works
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-4 leading-tight">
+          Trusted Hands for Your<br/> Roof's Protection.
+        </h2>
+        <p class="text-slate-500 mb-10 leading-relaxed">
+          From your first call to a weatherproof roof — we've made the process fast, transparent, and stress-free.
+        </p>
+
+        <!-- Accordion -->
+        <div class="divide-y divide-gray-100 border-t border-gray-100" id="process-accordion">
+          {steps.map(({ n, title, description, img, imgAlt }, i) => (
+            <div class="process-item" data-index={i}>
+              <button
+                class="w-full flex items-center justify-between py-5 text-left group"
+                aria-expanded={i === 0 ? 'true' : 'false'}
+              >
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex items-center justify-center w-8 h-6 rounded bg-slate-100 text-slate-500 font-mono text-xs font-semibold">{n}</span>
+                  <span class="font-heading font-bold text-lg text-slate-900">{title}</span>
+                </div>
+                <svg class={`w-4 h-4 text-slate-400 transition-transform duration-300 ${i === 0 ? 'rotate-45' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                </svg>
+              </button>
+
+              <!-- Body: text left, image right -->
+              <div class={`process-body pb-6 ${i !== 0 ? 'hidden' : ''}`}>
+                <div class="flex gap-5 items-start">
+                  <p class="text-slate-500 text-sm leading-relaxed flex-1">{description}</p>
+                  <img
+                    src={img}
+                    alt={imgAlt}
+                    class="w-32 h-24 rounded-xl object-cover flex-shrink-0"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-10">
+          <button
+            data-modal="contact"
+            class="inline-flex items-center gap-2 px-7 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-full transition-all"
+          >
+            Schedule Free Inspection
+            <span class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-7-7l7 7-7 7"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  const accordion = document.getElementById('process-accordion');
+  if (accordion) {
+    accordion.querySelectorAll('.process-item button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.process-item') as HTMLElement;
+        const body = item.querySelector('.process-body') as HTMLElement;
+        const icon = btn.querySelector('svg') as SVGElement;
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+        // Close all
+        accordion.querySelectorAll('.process-item').forEach((i) => {
+          const b = i.querySelector('.process-body') as HTMLElement;
+          const bt = i.querySelector('button') as HTMLElement;
+          const ic = bt.querySelector('svg') as SVGElement;
+          b.classList.add('hidden');
+          bt.setAttribute('aria-expanded', 'false');
+          ic.classList.remove('rotate-45');
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          body.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          icon.classList.add('rotate-45');
+        }
+      });
+    });
+  }
+</script>

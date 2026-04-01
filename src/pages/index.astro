@@ -3,30 +3,38 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 import ContactModal from '../components/ui/ContactModal.astro';
+import MobileStickyCTA from '../components/ui/MobileStickyCTA.astro';
 import Hero from '../components/sections/Hero.astro';
-import ServicesBar from '../components/sections/ServicesBar.astro';
-import WhyUs from '../components/sections/WhyUs.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
 import Services from '../components/sections/Services.astro';
+import BeforeAfter from '../components/sections/BeforeAfter.astro';
+import WhyUs from '../components/sections/WhyUs.astro';
 import Process from '../components/sections/Process.astro';
-import Gallery from '../components/sections/Gallery.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
 import FAQ from '../components/sections/FAQ.astro';
+import WhoWeAre from '../components/sections/WhoWeAre.astro';
+import TrustSection from '../components/sections/TrustSection.astro';
 import FinalCTA from '../components/sections/FinalCTA.astro';
 ---
 
-<Layout>
+<Layout
+  title="Alfla Constructions — Miami Flat Roof Repair & Restoration Specialists"
+  description="Expert flat roof repair, Tropical 924 restoration, and replacement for Miami-Dade and Broward. Licensed, insured, free inspection. Save up to $65,000 vs replacement."
+>
   <Navbar />
   <main>
     <Hero />
-    <ServicesBar />
-    <WhyUs />
-    <Services />
-    <Process />
-    <Gallery />
-    <Testimonials />
-    <FAQ />
-    <FinalCTA />
+    <WhoWeAre/>
+    <Services/>
+    <BeforeAfter/>
+    <WhyUs/>
+    <TrustSection/>
+    <Process/>
+    <Testimonials/>
+    <FAQ/>
+    <FinalCTA/>
   </main>
-  <Footer />
-  <ContactModal />
+  <Footer/>
+  <ContactModal/>
+  <MobileStickyCTA/>
 </Layout>
