@@ -33,31 +33,31 @@ const differentiators = [
 ];
 ---
 
-<section id="why-us" class="py-24 lg:py-32 bg-slate-50">
+<section id="why-us" class="py-24 lg:py-32 bg-[#0B1F4B]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
     <!-- Header -->
     <div class="text-center mb-12 lg:mb-14">
-      <div class="inline-flex items-center gap-2 text-sm text-slate-500 mb-4">
-        <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+      <div class="inline-flex items-center gap-2 text-sm text-blue-300 mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
         Why Choose Us
       </div>
-      <h2 class="text-4xl lg:text-5xl font-heading font-bold text-slate-900 leading-tight mb-4">
+      <h2 class="text-4xl lg:text-5xl font-heading font-bold text-white leading-tight mb-4">
         The All Florida Difference
       </h2>
-      <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+      <p class="text-white/60 text-lg max-w-2xl mx-auto">
         We don't just fix roofs — we solve problems for Florida property owners who need someone they can trust.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {differentiators.map(({ icon, title, description }) => (
-        <div class="group p-6 rounded-2xl border border-gray-100 bg-white hover:border-blue-100 hover:shadow-md shadow-sm transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-slate-50 border border-gray-100 flex items-center justify-center text-slate-600 mb-5 group-hover:bg-blue-500 group-hover:text-white group-hover:border-blue-500 transition-all duration-300">
+        <div class="group p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-blue-400/40 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-white/70 mb-5 group-hover:bg-blue-500 group-hover:text-white group-hover:border-blue-500 transition-all duration-300">
             <span set:html={icon} />
           </div>
-          <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">{title}</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">{description}</p>
+          <h3 class="font-heading font-bold text-white text-lg mb-2">{title}</h3>
+          <p class="text-white/55 text-sm leading-relaxed">{description}</p>
         </div>
       ))}
     </div>
