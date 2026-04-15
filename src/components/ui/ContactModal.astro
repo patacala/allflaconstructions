@@ -1,31 +1,41 @@
 ---
-// Native HTML5 <dialog> modal — light theme
+// Native HTML5 <dialog> modal — branded with n8n webhook integration
 ---
 
 <dialog
   id="contact-modal"
-  class="w-full max-w-md mx-auto rounded-2xl bg-white border border-gray-200 p-0 shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
+  class="w-full max-w-md mx-auto rounded-2xl bg-white border border-gray-200 p-0 shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm overflow-hidden"
 >
-  <div class="p-6 md:p-8">
-    <!-- Header -->
-    <div class="flex items-start justify-between mb-6">
-      <div>
-        <h3 class="text-2xl font-heading font-bold text-brand-navy">Get Your Free Inspection</h3>
-        <p class="text-slate-500 text-sm mt-1">We'll contact you within 24 hours</p>
+  <!-- Branded navy header -->
+  <div class="bg-brand-navy px-6 pt-6 pb-5">
+    <div class="flex items-start justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/logo.png" alt="All Florida Construction" class="w-9 h-9 object-contain" />
+        <div>
+          <span class="font-heading font-bold text-white text-base leading-none block">All Florida</span>
+          <span class="text-white/60 text-xs font-medium tracking-wider uppercase leading-none">Construction & Roofing</span>
+        </div>
       </div>
       <button
         id="close-modal"
         aria-label="Close modal"
-        class="text-slate-400 hover:text-slate-700 transition-colors p-1 rounded-lg hover:bg-slate-100"
+        class="text-white/50 hover:text-white transition-colors p-1 rounded-lg hover:bg-white/10 -mt-0.5"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
+    <div class="mt-4">
+      <h3 class="text-xl font-heading font-bold text-white">Get Your Free Roof Inspection</h3>
+      <p class="text-white/60 text-sm mt-1">We'll contact you within 24 hours — no commitment required.</p>
+    </div>
+  </div>
 
+  <!-- Form body -->
+  <div class="p-6">
     <!-- Form -->
-    <form id="contact-form" class="space-y-4">
+    <form id="contact-form" class="space-y-4" novalidate>
       <div>
         <label for="name" class="block text-sm font-medium text-slate-700 mb-1.5">Full Name *</label>
         <input
@@ -45,7 +55,7 @@
           id="phone"
           name="phone"
           required
-          placeholder="(555) 000-0000"
+          placeholder="(786) 449-6646"
           class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
         />
       </div>
@@ -65,11 +75,21 @@
         </select>
       </div>
 
+      <!-- Error message (hidden by default) -->
+      <div id="form-error" class="hidden px-4 py-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
+        Something went wrong. Please call us at <a href="tel:+17864496646" class="font-semibold underline">(786) 449-6646</a>.
+      </div>
+
       <button
         type="submit"
-        class="w-full py-4 bg-brand-orange hover:bg-orange-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-md shadow-orange-500/20 hover:shadow-orange-500/35 active:scale-[0.98] mt-2"
+        id="submit-btn"
+        class="w-full py-4 bg-brand-orange hover:bg-orange-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-md shadow-orange-500/20 hover:shadow-orange-500/35 active:scale-[0.98] mt-2 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
       >
-        Send Request — It's Free
+        <span id="submit-label">Send Request — It's Free</span>
+        <svg id="submit-spinner" class="hidden animate-spin w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
       </button>
 
       <p class="text-xs text-slate-400 text-center">
@@ -79,9 +99,14 @@
 
     <!-- Success state (hidden by default) -->
     <div id="form-success" class="hidden text-center py-6">
-      <div class="text-5xl mb-4">✅</div>
+      <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
       <h4 class="text-xl font-bold text-brand-navy mb-2">Request Received!</h4>
-      <p class="text-slate-500">We'll reach out within 24 hours to schedule your free inspection.</p>
+      <p class="text-slate-500 text-sm">We'll reach out within 24 hours to schedule your free inspection.</p>
+      <p class="text-slate-400 text-xs mt-1">Or call us now: <a href="tel:+17864496646" class="text-brand-navy font-semibold hover:underline">(786) 449-6646</a></p>
       <button
         id="close-success"
         class="mt-6 px-6 py-3 bg-brand-orange hover:bg-orange-700 text-white font-semibold rounded-xl transition-colors"
@@ -115,12 +140,21 @@
 </style>
 
 <script>
+  // ─── REPLACE THIS URL with your real n8n webhook endpoint ───
+  const N8N_WEBHOOK_URL = 'https://YOUR_N8N_INSTANCE/webhook/YOUR_WEBHOOK_ID';
+  // ────────────────────────────────────────────────────────────
+
   const modal = document.getElementById('contact-modal') as HTMLDialogElement;
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const successState = document.getElementById('form-success') as HTMLElement;
+  const errorState = document.getElementById('form-error') as HTMLElement;
   const closeBtn = document.getElementById('close-modal') as HTMLButtonElement;
   const closeSuccessBtn = document.getElementById('close-success') as HTMLButtonElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const submitLabel = document.getElementById('submit-label') as HTMLSpanElement;
+  const submitSpinner = document.getElementById('submit-spinner') as SVGElement;
 
+  // Open modal on any [data-modal="contact"] click
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
     if (target.closest('[data-modal="contact"]')) {
@@ -128,14 +162,17 @@
     }
   });
 
+  // Close buttons
   closeBtn?.addEventListener('click', () => modal.close());
   closeSuccessBtn?.addEventListener('click', () => {
     modal.close();
     form.classList.remove('hidden');
     successState.classList.add('hidden');
+    errorState.classList.add('hidden');
     form.reset();
   });
 
+  // Close on backdrop click
   modal?.addEventListener('click', (e) => {
     const rect = modal.getBoundingClientRect();
     const clickedOutside =
@@ -146,9 +183,43 @@
     if (clickedOutside) modal.close();
   });
 
-  form?.addEventListener('submit', (e) => {
+  // Form submit → n8n webhook
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    form.classList.add('hidden');
-    successState.classList.remove('hidden');
+    errorState.classList.add('hidden');
+
+    const data = {
+      name: (document.getElementById('name') as HTMLInputElement).value,
+      phone: (document.getElementById('phone') as HTMLInputElement).value,
+      service: (document.getElementById('service') as HTMLSelectElement).value,
+      source: 'website-contact-form',
+      timestamp: new Date().toISOString(),
+    };
+
+    // Loading state
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Sending...';
+    submitSpinner.classList.remove('hidden');
+
+    try {
+      const res = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      // Success
+      form.classList.add('hidden');
+      successState.classList.remove('hidden');
+    } catch (err) {
+      console.error('[ContactForm] Webhook error:', err);
+      errorState.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitLabel.textContent = "Send Request — It's Free";
+      submitSpinner.classList.add('hidden');
+    }
   });
 </script>
