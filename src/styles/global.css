@@ -13,6 +13,14 @@
     @apply bg-white text-slate-900 font-sans antialiased;
   }
 
+  .site-wrapper {
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    overflow: hidden;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
